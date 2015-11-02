@@ -87,7 +87,7 @@ if node['asgard']['src_url'] and node['asgard']['src_url'][0,4] == "http"
     /tmp/grails-#{grails_version}/bin/grails war
     mv target/asgard.war /var/lib/tomcat#{node["tomcat"]["base_version"]}/webapps/
     EOH
-    notifies :restart, resources(:service => "tomcat")
+    #notifies :restart, resources(:service => "tomcat")
   end
 else
   remote_file "/var/lib/tomcat#{node["tomcat"]["base_version"]}/webapps/asgard.war" do
@@ -96,6 +96,6 @@ else
     owner "tomcat#{node["tomcat"]["base_version"]}"
     group "tomcat#{node["tomcat"]["base_version"]}"
     # needs to notify to delete the extracted asgard folder before tomcat restart
-    notifies :restart, resources(:service => "tomcat")
+    #notifies :restart, resources(:service => "tomcat")
   end
 end
