@@ -33,6 +33,7 @@ default['asgard']['account_name'] = ""
 default['asgard']['public_resource_accounts'] = []
 
 default['asgard']['src_url'] = nil
+default['asgard']['war_url'] = 'https://github.com/Netflix/asgard/releases/download/1.5.1/asgard.war'
 
 default['asgard']['eureka']['active'] = false
 default['asgard']['eureka']['regions_to_servers'] = { 'US_EAST_1' => 'eureka.us-east-1.mydomain.com' }
