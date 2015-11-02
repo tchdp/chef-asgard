@@ -34,9 +34,9 @@ directory "/var/lib/tomcat#{node["tomcat"]["base_version"]}/webapps/ROOT" do
   recursive true
 end
 
-resources(:template => "/etc/tomcat#{node["tomcat"]["base_version"]}/server.xml").instance_exec do
-  cookbook "asgard"
-end
+#resources(:template => "/etc/tomcat#{node["tomcat"]["base_version"]}/server.xml").instance_exec do
+#  cookbook "asgard"
+#end
 
 directory"/usr/share/tomcat#{node["tomcat"]["base_version"]}/.asgard" do
   mode "0774"
