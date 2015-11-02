@@ -91,7 +91,7 @@ if node['asgard']['src_url'] and node['asgard']['src_url'][0,4] == "http"
   end
 else
   remote_file "/var/lib/tomcat#{node["tomcat"]["base_version"]}/webapps/asgard.war" do
-    source "https://github.com/downloads/Netflix/asgard/asgard.war"
+    source node["asgard"]["war_url"]
     checksum "66d1ed7c0708c2fb163b95c756561ca55b7c33aa28634f85bdc894676cd48871"
     owner "tomcat#{node["tomcat"]["base_version"]}"
     group "tomcat#{node["tomcat"]["base_version"]}"
