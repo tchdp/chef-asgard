@@ -17,12 +17,12 @@
 # limitations under the License.
 #
 
-node.default["tomcat"]["use_security_manager"] = false
-node.default["tomcat"]["java_options"] = "-Djava.awt.headless=true  -Xmx768M -XX:MaxPermSize=144m"
+#node.default["tomcat"]["use_security_manager"] = false
+#node.default["tomcat"]["java_options"] = "-Djava.awt.headless=true  -Xmx768M -XX:MaxPermSize=144m"
 
 node.default["tomcat"]["base_version"] = "7"
 
-include_recipe "tomcat"
+#include_recipe "tomcat"
 
 file "/var/lib/tomcat#{node["tomcat"]["base_version"]}/conf/Catalina/localhost/ROOT.xml" do
   action :delete
@@ -55,7 +55,7 @@ template "/usr/share/tomcat#{node["tomcat"]["base_version"]}/.asgard/Config.groo
   owner "tomcat#{node["tomcat"]["base_version"]}"
   group "tomcat#{node["tomcat"]["base_version"]}"
   variables( :aws_account_names => aws_account_names)
-  notifies :restart, resources(:service => "tomcat")
+#  notifies :restart, resources(:service => "tomcat")
 end
 
 if node['asgard']['src_url'] and node['asgard']['src_url'][0,4] == "http"
